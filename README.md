@@ -4,7 +4,9 @@ Dread-free locks that drive consistency.
 ### Summary
 
 * Create and use keys to identify objects:
-  * `let key1 = hash(anything)`
+  * `let key1 = hash(whatever)`
+  * `let key2 = {whatever: 'whatever'}`
+  * `let key3 = Symbol('whatever')`
 * Create key sets for keys involved in each task:
   * `const keySet = [key1, key2, key3]`
 * Lock these key sets
@@ -15,40 +17,36 @@ Dread-free locks that drive consistency.
 ### Perks
 
 * Respects `FIFO` (first-in-first-out) flow:
-  * Iterates on queue item 0 to n then back to 0.
-  * Reverts index to 0 on each performed lock.
-  * Reverts index to 0 on each performed release.
+  * Iterates on queue on every release.
 * Uses `Map` so you can use anything as a key.
-  * Although of course, use of `strings` are the most encouraged.
-* Uses `setInterval` for periodic checks and processing of queue.
-  * `new Dreadlock(interval)` accepts custom `interval` in ms, `4` by default; 1000/4 = `250 checks/s`
+  * `Map` has higher limits than `Object`.
 
 ### Use Cases:
 
 * Database consistency & transactions.
 * Ensuring order in execution of tasks that wish to modify possibly similar objects or entities.
 
-
 ### Changelog
 
 * v2.x
-  * Added pre-queue check if keys can be locked immediately.
+  * Removed setInterval, smarter locking mechanism.
 * v1.x
-  * Basic functionality.
+  * Uses setInterval, has immediate-locking mechanism.
 
 ---
 
 ### class `Dreadlock`
-* constructor (`interval`)
-  * `interval` optional Integer, in ms
-* lock (`items`)
+* constructor ()
+* method `lock` (`items`)
   * `items` array of keys to lock
   * RETURNS Promise, resolves on lock success
-* release (`items`)
+* method `release` (`items`)
   * `items` array of keys to release
   * RETURNS Promise, resolves on release success
-* size
+* property `size`
   * RETURNS current size of instance `Map`
+* property `length`
+  * RETURNS current size of instance `Array` queue
 ---
 
 ### Usage:
