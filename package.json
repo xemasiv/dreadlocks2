@@ -1,0 +1,27 @@
+{
+  "name": "dreadlocks2",
+  "version": "1.0.0",
+  "description": "The original setInterval-based version.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xemasiv/dreadlocks2.git"
+  },
+  "keywords": [
+    "dreadlocks",
+    "dread-free",
+    "locks",
+    "for",
+    "consistency",
+    "xemasiv"
+  ],
+  "author": "xemasiv <xemasiv@gmail.com>",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/xemasiv/dreadlocks2/issues"
+  },
+  "homepage": "https://github.com/xemasiv/dreadlocks2#readme"
+}
