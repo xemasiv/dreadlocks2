@@ -1,6 +1,6 @@
 {
   "name": "dreadlocks2",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Dread-free promise-based locks, 2 because it's a rewrite.",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "xemasiv"
   ],
   "author": "xemasiv <xemasiv@gmail.com>",
-  "license": "CC0-1.0",
+  "license": "CC-BY-4.0",
   "bugs": {
     "url": "https://github.com/xemasiv/dreadlocks2/issues"
   },
